@@ -1,14 +1,14 @@
 const _ = require('underscore');
 
-const numberOfCandies = (width, height) => {
-  return width === height ? width : width < height ? width : height;
+const numberOfSprite = (width, height) => {
+  return width === height ? width : Math.floor((height + width)/2);
 };
 
-const testNumberOfCandies = () => {
-  console.log("output: ", numberOfCandies(3, 4), ", expect: 3");
-  console.log("output: ", numberOfCandies(5, 6), ", expect: 5");
-  console.log("output: ", numberOfCandies(5, 5), ", expect: 5");
-  console.log("output: ", numberOfCandies(12, 4), ", expect: 4");
+const testNumberOfSprite = () => {
+  console.log("output: ", numberOfSprite(3, 4), ", expect: 3");
+  console.log("output: ", numberOfSprite(5, 6), ", expect: 5");
+  console.log("output: ", numberOfSprite(5, 5), ", expect: 5");
+  console.log("output: ", numberOfSprite(12, 4), ", expect: 8");
 };
 
 const initOrigin = (width, height) => {
@@ -23,7 +23,7 @@ const createCoordinate = (width, height) => {
 };
 
 const generateCoordinates = (width, height) => {
-  const num = numberOfCandies(width, height);
+  const num = numberOfSprite(width, height);
   const origin = initOrigin(width, height);
   let coordinates = [];
   coordinates.push(origin);
@@ -175,4 +175,4 @@ const func = (width, height) => {
 }
 
 
-testComputeShortestPath();
+testNumberOfSprite();
